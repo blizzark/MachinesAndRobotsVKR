@@ -1,0 +1,2 @@
+# MachinesAndRobotsVKR
+Дипломная работа
