@@ -1,0 +1,603 @@
+﻿<Application x:Class="MachinesAndRobotsVKR.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MachinesAndRobotsVKR" 
+              StartupUri="Interface/Authorization.xaml">
+             <!--StartupUri="Interface/AdminPanel.xaml">-->
+            
+    
+    
+    
+    <Application.Resources>
+        <Style x:Key="ButtonStyleLeft" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid >
+                            <Path x:Name="path" Data="m 28.635422,422.11988 c -5.93098,-3.98485 -181.895502,-179.42703 -188.192792,-187.63416 -10.73045,-13.98478 -10.73172,-23.79345 -0.005,-37.79518 6.23142,-8.13384 183.256332,-184.696215 189.155332,-188.6610914 4.00138,-2.689434 6.95733,-3.941317 9.30623,-3.941317 3.13202,0 3.64001,0.428135 5.63605,4.75 2.15403,4.6639654 2.19972,5.6868434 2.52202,56.4729404 l 0.32826,51.722938 84.671738,0.27706 c 84.661,0.27702 84.67258,0.27734 91.24388,2.5123 16.86379,5.73553 30.58267,19.32274 37.18953,36.8326 2.21403,5.86774 2.23834,6.50228 2.23834,58.43216 0,51.92988 -0.0243,52.56442 -2.23834,58.43216 -6.60686,17.50986 -20.32574,31.09707 -37.18953,36.8326 -6.57131,2.23496 -6.58267,2.23527 -91.25004,2.51231 l -84.677918,0.27706 -0.37313,51.22294 c -0.38538,52.90395 -0.57186,55.35243 -4.56763,59.97293 -2.52342,2.91795 -7.29409,2.15094 -13.79713,-2.21825 z" Fill="#FF2E77A9" Stretch="Fill" RenderTransformOrigin="0.5,0.5"></Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                               
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" TargetName="path">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="path">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FFF" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonStyleRight" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid >
+                            <Path x:Name="path" Data="m -28.635422,-422.11988 c 5.93098,3.98485 181.895502,179.42703 188.192792,187.63416 10.73045,13.98478 10.73172,23.79345 0.005,37.79518 -6.23142,8.13384 -183.256332,184.696215 -189.155332,188.6610914 -4.00138,2.689434 -6.95733,3.941317 -9.30623,3.941317 -3.13202,0 -3.64001,-0.428135 -5.63605,-4.75 -2.15403,-4.6639654 -2.19972,-5.6868434 -2.52202,-56.4729404 l -0.32826,-51.722938 -84.671738,-0.27706 c -84.661,-0.27702 -84.67258,-0.27734 -91.24388,-2.5123 -16.86379,-5.73553 -30.58267,-19.32274 -37.18953,-36.8326 -2.21403,-5.86774 -2.23834,-6.50228 -2.23834,-58.43216 -0,51.92988 0.0243,-52.56442 2.23834,-58.43216 6.60686,-17.50986 20.32574,-31.09707 37.18953,-36.8326 6.57131,-2.23496 6.58267,-2.23527 91.25004,-2.51231 l 84.677918,-0.27706 0.37313,-51.22294 c 0.38538,-52.90395 0.57186,-55.35243 4.56763,-59.97293 2.52342,-2.91795 7.29409,-2.15094 13.79713, 2.21825 z" Fill="#FF2E77A9" Stretch="Fill" RenderTransformOrigin="0.5,0.5"></Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" TargetName="path">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="path">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FFF" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="StyleForButton" TargetType="{x:Type Button}" >
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid" >
+                        <Border x:Name="border" CornerRadius="8" BorderBrush="#FF2E77A9" BorderThickness="1" >
+                            <Border.Background>
+                                <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterX="0.5" CenterY="0.5" 
+                                                        ScaleX="1.5" ScaleY="1.5" />
+                                            <TranslateTransform X="0.02" Y="0.3"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="1" Color="#FF1E4F8A" />
+
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                            </ContentPresenter>
+                        </Border>
+
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                <TranslateTransform X="0.02" Y="0.3"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#00000000" Offset="1"/>
+                                        <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#ffffff"  />
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                        <GradientStop Color="#111111" Offset="0.3"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        </Style>
+
+
+        <Style x:Key="butClose" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border">
+                            <Grid>
+                                <Rectangle Fill="Transparent"/>
+                                <Path Data="M2.999979,0C3.8000264,0,4.4999763,0.30000305,5.1000115,0.90000927L15.999954,11.700012 26.899959,0.90000927C28.099967,-0.29998779 29.999927,-0.29998779 31.099961,0.90000927 32.299972,2.1000061 32.299972,4 31.099961,5.1000061L20.199958,16 31.099961,26.900009C32.299972,28.100006 32.299972,30 31.099961,31.100006 29.899951,32.300003 27.999931,32.300003 26.899959,31.100006L15.999954,20.200012 5.1000115,31.100006C3.9000017,32.300003 1.9999809,32.300003 0.90000743,31.100006 -0.30000248,29.900009 -0.30000248,28 0.90000743,26.900009L11.800011,16 0.90000743,5.1000061C-0.30000248,3.9000092 -0.30000248,2 0.90000743,0.90000927 1.4999818,0.30000305 2.1999928,0 2.999979,0z" 
+                             Stretch="Uniform" 
+                             Fill="#fff" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0.3,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Border">
+                                    <Grid>
+                                        <Rectangle Fill="Transparent"/>
+                                        <Path Data="M2.999979,0C3.8000264,0,4.4999763,0.30000305,5.1000115,0.90000927L15.999954,11.700012 26.899959,0.90000927C28.099967,-0.29998779 29.999927,-0.29998779 31.099961,0.90000927 32.299972,2.1000061 32.299972,4 31.099961,5.1000061L20.199958,16 31.099961,26.900009C32.299972,28.100006 32.299972,30 31.099961,31.100006 29.899951,32.300003 27.999931,32.300003 26.899959,31.100006L15.999954,20.200012 5.1000115,31.100006C3.9000017,32.300003 1.9999809,32.300003 0.90000743,31.100006 -0.30000248,29.900009 -0.30000248,28 0.90000743,26.900009L11.800011,16 0.90000743,5.1000061C-0.30000248,3.9000092 -0.30000248,2 0.90000743,0.90000927 1.4999818,0.30000305 2.1999928,0 2.999979,0z" 
+                             Stretch="Uniform" 
+                             Fill="Red" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0.3,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+
+                        </Setter.Value>
+
+                    </Setter>
+                </Trigger>
+                <EventTrigger RoutedEvent="Button.MouseEnter" >
+                    
+                    <BeginStoryboard>
+                        
+                        <Storyboard>
+                            
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle" To="180" Duration="0:0:0.5" ></DoubleAnimation>
+                          
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                
+                
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Angle"
+                                                            Duration="0:0:0.5"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="butMini" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border">
+                            <Grid>
+                                <Rectangle Fill="Transparent"/>
+                                <Path Data="M 0,0 H 55 V 20 H -20 V 0 Z"
+                             Stretch="Uniform" 
+                             Fill="{TemplateBinding Background}" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0.3,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Border">
+                                    <Grid>
+                                        <Rectangle Fill="Transparent"/>
+                                        <Path Data="M 0,0 H 55 V 20 H -20 V 0 Z"                             Stretch="Uniform" 
+                             Fill="#FF1E4F8A" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0.3,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+
+                        </Setter.Value>
+
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+      
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+        x:Name="tb" BorderBrush="#FF2E77A9"
+        BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ScrollViewer Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+
+                        </Border>
+                     
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        
+ <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF1E4F8A"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF2E77A9"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground"  Value="#FFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TabItem">
+            <Setter Property="Foreground" Value="#fff"/>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="TabItem">
+
+                        <Grid Name="Panel">
+                            <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"
+                            />
+
+                            <Rectangle Grid.Row="1" >
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF2E77A9"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+
+                            </Rectangle>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                               
+                                <Setter Property="Background" TargetName="Panel">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Panel" Property="Background" Value="#FF1E4F8A" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="Panel">
+                                    <Setter.Value>
+                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                    <TranslateTransform X="0.02" Y="0.3"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                            <GradientStop Color="#FF1E4F8A" Offset="0.3"/>
+
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+        <SolidColorBrush x:Key="BorderBrushComboBox" Color="#FF2E77A9" />
+
+        <LinearGradientBrush x:Key="BackgroundBrushComboBox" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#ffffff"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="BackgroundBrushPopUpComboBox" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#ffffff"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="ArrowBrushComboBox" Color="#FF2E77A9" />
+
+        <SolidColorBrush x:Key="DisabledBorderBrushComboBox" Color="#111" />
+
+        <LinearGradientBrush x:Key="DisabledBackgroundComboBox" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#f4f4f4" Offset="0"/>
+            <GradientStop Color="#d7d7d7" Offset="0.7"/>
+            <GradientStop Color="#c2c2c2" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="DisabledForegroundComboBox" Color="#111" />
+
+        <SolidColorBrush x:Key="HoverBorderBrush" Color="#fff" />
+
+
+        <LinearGradientBrush x:Key="HoverToggleBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FF1E4F8A"></GradientStop>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="HoverItemComboBox" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FF037EF1"></GradientStop>
+        </LinearGradientBrush>
+
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="24" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="8" Background="{StaticResource HoverToggleBackground}" 
+                    BorderBrush="{StaticResource BorderBrushComboBox}" BorderThickness="1" />
+                <Border x:Name="BorderToggle" Grid.Column="0" CornerRadius="3,0,0,3" Background="{StaticResource BackgroundBrushComboBox}"
+                    BorderBrush="{StaticResource BorderBrushComboBox}" Margin="1" BorderThickness="0,0,1,0" />
+                <Path x:Name="Arrow" Grid.Column="1" Fill="{StaticResource ArrowBrushComboBox}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  Data="M -2 0 L 2 4 L 6 0 Z"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverToggleBackground}" />
+                    <Setter TargetName="Border" Property="BorderThickness" Value="1" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource HoverBorderBrush}" />
+                    <Setter TargetName="Arrow" Property="Fill" Value="#fff" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundComboBox}" />
+                    <Setter TargetName="BorderToggle" Property="Background" Value="{StaticResource DisabledBackgroundComboBox}" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrushComboBox}" />
+                    <Setter Property="Foreground" Value="{StaticResource DisabledForegroundComboBox}"/>
+                    <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource DisabledBorderBrushComboBox}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+
+
+            <Setter Property="Foreground" Value="#111"/>
+
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsVirtualizing="True"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton" Template="{StaticResource ComboBoxToggleButton}" Grid.Column="2" Focusable="false"
+                                      IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="6,3,23,3" VerticalAlignment="Center"
+                                          HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox" Style="{x:Null}" Template="{StaticResource ComboBoxTextBox}" HorizontalAlignment="Left" 
+                                 VerticalAlignment="Center" Margin="6,3,23,3" Focusable="True" Background="Transparent" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False"
+                               PopupAnimation="Slide" Margin="1,-8,-3,8">
+                                <Grid Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="{StaticResource BackgroundBrushPopUpComboBox}" BorderThickness="1,1,1,1" Margin="0,0,0,3"
+                                        BorderBrush="{StaticResource BorderBrushComboBox}"/>
+                                    <!--***Scroll***-->
+                                    <ScrollViewer Margin="0,3" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Name="Border" Padding="2" BorderThickness="1" SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverItemComboBox}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundComboBox}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

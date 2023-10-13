@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="MachinesAndRobotsVKR.Interface.ListLine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MachinesAndRobotsVKR.Interface"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" >
+    <Grid Background="#FF8FC2EB" MinWidth="574.4"  MinHeight="396">
+
+
+        <Label Content="Модели производственной линии:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Margin="10,10,0,0" Height="34" Width="304" MinWidth="174.4" MinHeight="33.6"/>
+        <Button x:Name="deleteButt" Content="Удалить" Margin="10,0,0,10" Style="{StaticResource StyleForButton}"  MinHeight="44" MinWidth="150" Width="150" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="deleteButt_Click"/>
+        <Button x:Name="createButt" Content="Создать" Margin="0,0,10.4,10" Style="{StaticResource StyleForButton}"  MinHeight="44" MinWidth="150" Width="150" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="CreateButt_Click"/>
+        <Button x:Name="editButt" Content="Редактировать" Margin="218,0,212,10" Style="{StaticResource StyleForButton}"  MinHeight="44" MinWidth="150" Width="150" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="editButt_Click"/>
+        <TextBox x:Name="ProductBox" Margin="317,0,38.2,146.6" TextWrapping="Wrap" Text="" FontSize="14" IsReadOnly="True" Padding="5" VerticalAlignment="Bottom" />
+        <TextBox x:Name="EnergyBox" Margin="317,0,38.6,108.6" TextWrapping="Wrap" Text="" FontSize="14" IsReadOnly="True" Padding="5" VerticalAlignment="Bottom" />
+        <TextBox x:Name="SquareBox" Margin="317,0,38.6,70.6" TextWrapping="Wrap" Text="" FontSize="14" IsReadOnly="True" Padding="5" VerticalAlignment="Bottom" />
+        <Image x:Name="img" Margin="310,44,32.4,186.6"/>
+        <ListBox x:Name="ListProdLines" Margin="10,44,0,108.6" Width="295" HorizontalAlignment="Left" SelectionChanged="ListProdLines_SelectionChanged" FontSize="16"/>
+        <Label Content="Дата обновления:" HorizontalAlignment="Left" Margin="10,0,0,70.6" VerticalAlignment="Bottom" FontSize="14"/>
+        <TextBox x:Name="dateBox" Margin="135,0,0,70.6" TextWrapping="Wrap" IsReadOnly="True" Padding="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="170" />
+    </Grid>
+</UserControl>

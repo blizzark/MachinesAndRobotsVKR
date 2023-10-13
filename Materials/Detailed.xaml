@@ -1,0 +1,53 @@
+﻿<Window x:Class="MachinesAndRobotsVKR.Detailed"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MachinesAndRobotsVKR"
+        mc:Ignorable="d"
+        Title="Подробнее" Height="547.2" Width="1011.574" ResizeMode="NoResize"  WindowStyle="None" BorderBrush="Black" BorderThickness="1.2">
+    <Grid Background="#FF8FC2EB">
+
+        <Border Name ="Drag"  HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="1009" Margin="0,0,-0.2,0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4173B7" Offset="0"/>
+                    <GradientStop Color="#FF3D5488" Offset="0.898"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Button Name="butClose" HorizontalAlignment="Left" Margin="976,15,0,0" VerticalAlignment="Top" Width="23"  Style="{StaticResource butClose}" Height="21" Background="White" Click="Close" ToolTip="Close Application" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <RotateTransform ></RotateTransform>
+            </Button.RenderTransform>
+        </Button>
+
+        <Label Content="Подробнее об оборудовании" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        <Button Name="ModelButt" Content="Показать" Style="{StaticResource StyleForButton}" Margin="370,484,0,0" Width="134" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="ModelButt_Click"/>
+        <Button Name="LiteratureButt" Content="Показать" Style="{StaticResource StyleForButton}" Margin="370,374,0,0" Width="134" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="LiteratureButt_Click"/>
+        <Button Name="VideoButt" Content="Показать" Style="{StaticResource StyleForButton}" Margin="370,427,0,0" Width="134" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="VideoButt_Click"/>
+        <DataGrid Name="GridCharacter" HorizontalAlignment="Left" Height="245" Margin="19,107,0,0" VerticalAlignment="Top" Width="485" IsReadOnly="True">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Характеристика оборудования" Width="275" 
+                             Binding="{Binding Path=ModelName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Значение" Width="209" 
+                             Binding="{Binding Path=UnitCost,StringFormat={}{0:C}}"></DataGridTextColumn>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="20,69,0,0" VerticalAlignment="Top"/>
+        <Label Name="EquipmentLabelName" Content="Nan" HorizontalAlignment="Left" Margin="116,69,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="380" Margin="530,107,0,0" VerticalAlignment="Top" Width="469">
+            <Image x:Name="img" Margin="0"/>
+            <Button x:Name="BackButt" Style="{DynamicResource ButtonStyleLeft}" Content="Button" HorizontalAlignment="Left" Margin="10,58,0,64" VerticalAlignment="Center" Width="27" Height="53" Click="BackButt_Click"/>
+            <Button x:Name="NextButt" Style="{DynamicResource ButtonStyleRight}" Content="Button" HorizontalAlignment="Right" Margin="0,59,10,64" VerticalAlignment="Center" Width="27" Height="52" Click="NextButt_Click"/>
+        </Grid>
+        <ComboBox x:Name="ComboLitra" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Width="345"/>
+        <Label Content="Учебно-методическая литература:" HorizontalAlignment="Left" Margin="19,357,0,0" VerticalAlignment="Top"/>
+        <Label Content="Видеоматериал оборудования:" HorizontalAlignment="Left" Margin="20,410,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboVideo" HorizontalAlignment="Left" Margin="19,436,0,0" VerticalAlignment="Top" Width="345"/>
+        <Label Content="3D модель оборудования:" HorizontalAlignment="Left" Margin="20,465,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboModel" HorizontalAlignment="Left" Margin="21,491,0,0" VerticalAlignment="Top" Width="345"/>
+
+    </Grid>
+</Window>
+

@@ -1,0 +1,60 @@
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+--
+-- Host: server42.hosting.reg.ru    Database: u1936578_vkr
+-- ------------------------------------------------------
+-- Server version	5.7.27-30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `model`
+--
+
+DROP TABLE IF EXISTS `model`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `model` (
+  `idmodel` int(11) NOT NULL AUTO_INCREMENT,
+  `coordinateX` float NOT NULL,
+  `coordinateY` float NOT NULL,
+  `coordinateZ` float NOT NULL,
+  `idmaterial` int(11) NOT NULL,
+  `idproduction_line` int(11) NOT NULL,
+  `angle` double NOT NULL,
+  PRIMARY KEY (`idmodel`),
+  KEY `idline_idx` (`idproduction_line`),
+  KEY `ideqforline_idx` (`idmaterial`),
+  CONSTRAINT `ideqforline` FOREIGN KEY (`idmaterial`) REFERENCES `material` (`idmaterial`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `idline` FOREIGN KEY (`idproduction_line`) REFERENCES `production_line` (`idproduction_line`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `model`
+--
+
+LOCK TABLES `model` WRITE;
+/*!40000 ALTER TABLE `model` DISABLE KEYS */;
+INSERT INTO `model` VALUES (117,-531.956,-3543.7,3.16486,22,40,-103.007299270073),(118,-2258.84,-2133.34,3.08772,23,40,0),(119,-1449.94,-3471.18,-2.04028,17,40,0),(120,-1355.29,-3211.95,748.568,16,40,0),(121,-396.049,-1453.53,3.16486,22,41,0),(122,1618.88,-1959.59,2.90325,14,41,0),(123,-766.561,-4751.66,5.85153,20,41,0),(124,-766.561,-1751.66,5.85153,20,42,0),(125,-1129.42,1514.33,1.54386,23,42,0),(137,-692.882,-1690.97,5.96859,18,45,0),(138,-766.561,-4501.66,5.85153,20,45,0),(139,-2285.23,-2037.18,2.90325,14,45,0);
+/*!40000 ALTER TABLE `model` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-06-23 12:14:28
